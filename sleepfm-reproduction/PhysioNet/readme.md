@@ -18,7 +18,10 @@ python /home/kdpark/sleepfm-codebase/sleepfm/3_generate_embed_pretraining.py \
   my_run \
   --data_dir /ssd/kdpark/sleepfm-codebase/physionet_segments \
   --dataset_file dataset_events_-1.pickle \
-  --splits train,valid,test
+  --splits train,valid,test  
+
+python /home/kdpark/sleepfm-codebase/sleepfm/3_generate_embed_pretraining.py my_run_final --data_dir /ssd/kdpark/sleepfm-codebase/physionet_final --dataset_file dataset_events_-1.pickle --splits train,valid,test
+
 
 # 4_classification_eval_pretraining  
 python /ssd/kdpark/sleepfm-codebase/sleepfm/4_classification_eval_pretraining.py \
