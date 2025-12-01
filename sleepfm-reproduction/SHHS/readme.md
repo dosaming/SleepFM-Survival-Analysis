@@ -10,7 +10,7 @@ python /home/kdpark/sleepfm-codebase/sleepfm/0_extract_pretraining_data_shhs.py 
 
 
 # Prepare Dataset (125Hz)  
-python /home/kdpark/sleepfm-codebase/sleepfm/1_prepare_dataset_shhs125.py \
+python /home/kdpark/sleepfm-codebase/sleepfm/1_prepare_dataset_shhs.py \
 --dataset_dir /ssd/kdpark/sleepfm-codebase/shhs_segments_125 \
 --train_frac 0.70 \
 --valid_frac 0.10 \
@@ -20,7 +20,7 @@ python /home/kdpark/sleepfm-codebase/sleepfm/1_prepare_dataset_shhs125.py \
 Split sizes → Train: 3047, Valid: 1306, Test: 1088  
 
 # Generate Embedding  
-python 3_generate_embed_pretraining_shhs125.py \
+python 3_generate_embed_pretraining_shhs.py \
 /ssd/kdpark/sleepfm-codebase/outputs_shhs_125 \
 --dataset_dir /ssd/kdpark/sleepfm-codebase/shhs_segments_125 \
 --dataset_file dataset_events_-1.pickle \
@@ -34,6 +34,12 @@ python /home/kdpark/sleepfm-codebase/sleepfm/4_classification_eval_pretraining_s
 --dataset_dir /ssd/kdpark/sleepfm-codebase/shhs_segments_125 \
 --modality_type sleep_stages \
 --model_name logistic \
---max_iter 1000
+--max_iter 1000  
+
+# Results  Class
+
+<img width="364" height="156" alt="image" src="https://github.com/user-attachments/assets/458f786e-ba1d-4f97-a5e0-34afc72b67c8" />
+
+
 
 
