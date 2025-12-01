@@ -1,4 +1,4 @@
-# Settins
+# Settings
 cd /ssd/kdpark/sleepfm-codebase  
 conda activate sleepfm_env  
 
