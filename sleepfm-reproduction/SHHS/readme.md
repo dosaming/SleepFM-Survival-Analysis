@@ -1,5 +1,6 @@
 # Environment  
-/home/kdpark/sleepfm-codebase/sleepfm/model/dataset.py의 from config_shhs_125로 설정 확인  
+/home/kdpark/sleepfm-codebase/sleepfm/model/dataset.py의 from config_shhs_125 / new 로 설정 확인  
+new : X_EOG_diff 전처리한 데이터 경로로 저장  
 
 # Extract pretraining dataset  
 python /home/kdpark/sleepfm-codebase/sleepfm/0_extract_pretraining_data_shhs.py \
