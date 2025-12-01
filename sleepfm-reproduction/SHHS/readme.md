@@ -39,7 +39,16 @@ python /home/kdpark/sleepfm-codebase/sleepfm/4_classification_eval_pretraining_s
 
 # Results  
 
-<img width="364" height="156" alt="image" src="https://github.com/user-attachments/assets/458f786e-ba1d-4f97-a5e0-34afc72b67c8" />
+<img width="364" height="156" alt="image" src="https://github.com/user-attachments/assets/458f786e-ba1d-4f97-a5e0-34afc72b67c8" />  
+
+# Fine Encoder  
+
+python /home/kdpark/sleepfm-codebase/sleepfm/fine_encoder_final0_shhs.py  
+python /home/kdpark/sleepfm-codebase/sleepfm/fine_encoder_wce0_shhs.py  
+
+# Fine Encoder Results  
+<img width="364" height="156" alt="image" src="https://github.com/user-attachments/assets/c9a3e4bf-9f46-4c5a-9288-c840f65715c2" />
+
 
 
 
