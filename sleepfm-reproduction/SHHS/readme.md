@@ -36,7 +36,7 @@ python /home/kdpark/sleepfm-codebase/sleepfm/4_classification_eval_pretraining_s
 --model_name logistic \
 --max_iter 1000  
 
-# Results  Class
+# Results  
 
 <img width="364" height="156" alt="image" src="https://github.com/user-attachments/assets/458f786e-ba1d-4f97-a5e0-34afc72b67c8" />
 
