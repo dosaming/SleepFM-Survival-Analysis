@@ -1,4 +1,5 @@
 # Environment  
+/home/kdpark/sleepfm-codebase/sleepfm/model/dataset.py의 from config_shhs_125로 설정 확인  
 
 # Extract pretraining dataset  
 python /home/kdpark/sleepfm-codebase/sleepfm/0_extract_pretraining_data_shhs.py \
