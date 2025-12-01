@@ -18,6 +18,21 @@ python /home/kdpark/sleepfm-codebase/sleepfm/1_prepare_dataset_shhs125.py \
 --random_state 42  
 Split sizes → Train: 3047, Valid: 1306, Test: 1088  
 
-# 
+# Generate Embedding  
+python 3_generate_embed_pretraining_shhs125.py \
+/ssd/kdpark/sleepfm-codebase/outputs_shhs_125 \
+--dataset_dir /ssd/kdpark/sleepfm-codebase/shhs_segments_125 \
+--dataset_file dataset_events_-1.pickle \
+--batch_size 64 \
+--num_workers 0 \
+--splits train,valid,test
+
+# Classification Eval Pretraining  
+python /home/kdpark/sleepfm-codebase/sleepfm/4_classification_eval_pretraining_shhs.py \
+--output_file /ssd/kdpark/sleepfm-codebase/outputs_shhs_125 \
+--dataset_dir /ssd/kdpark/sleepfm-codebase/shhs_segments_125 \
+--modality_type sleep_stages \
+--model_name logistic \
+--max_iter 1000
 
 
