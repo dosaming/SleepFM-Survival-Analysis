@@ -44,7 +44,7 @@ test: 1534명
 -> info data 없는 31명 제외  
 
 D_embed (psg) = 512  
-D_info = 5 ["nsrr_age", "nsrr_sex", "nsrr_race", "nsrr_ethnicity", "nsrr_bmi"]
+D_info = 5 ["nsrr_age", "nsrr_sex", "nsrr_race", "nsrr_ethnicity", "nsrr_bmi"]  
 event 발생 771건, event 미발생 2673건  
 
 
