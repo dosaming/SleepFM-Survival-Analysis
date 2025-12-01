@@ -32,7 +32,19 @@ python /ssd/kdpark/sleepfm-codebase/sleepfm/4_classification_eval_pretraining.py
 
 # Results  
 
-<img width="364" height="156" alt="image" src="https://github.com/user-attachments/assets/6677fa87-f31a-4493-8720-eea725fd22a8" />
+<img width="364" height="156" alt="image" src="https://github.com/user-attachments/assets/6677fa87-f31a-4493-8720-eea725fd22a8" />  
+
+# Fine Encoder  
+encoder: unfreeze + CrossEntropy로 end-to-end 학습  
+python /home/kdpark/sleepfm-codebase/sleepfm/fine_encoder_final0.py  
+
+# Fine Encoder WCE  
+ulimit -n 65536  
+python /home/kdpark/sleepfm-codebase/sleepfm/fine_encoder_wce0.py  
+
+# WCE Results  
+<img width="364" height="156" alt="image" src="https://github.com/user-attachments/assets/00df3315-3f2c-4eae-8aba-a3e0fa178888" />
+
 
 
 
