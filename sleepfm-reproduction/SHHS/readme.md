@@ -3,11 +3,13 @@ dataset.py의 from config_shhs_125 / new 로 설정 확인 필요
 config_shhs_new : X_EOG_diff 전처리한 데이터 경로로 저장한 config.py  
 
 # Extract pretraining dataset  
-'''python 0_extract_pretraining_data_shhs.py \
+'''
+python 0_extract_pretraining_data_shhs.py \
 --shhs_edf_dir "/#_SHHS/polysomnography/edfs/shhs1" \
 --shhs_xml_dir "/#_SHHS/polysomnography/annotations-events-profusion/shhs1" \
 --target_sampling_rate 125 \
---num_threads 8'''  
+--num_threads 8
+'''  
 
 
 # Prepare Dataset (125Hz)  
