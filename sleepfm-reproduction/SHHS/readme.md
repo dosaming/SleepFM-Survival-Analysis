@@ -1,18 +1,18 @@
 # Environment  
-/home/kdpark/sleepfm-codebase/sleepfm/model/dataset.py의 from config_shhs_125 / new 로 설정 확인  
-new : X_EOG_diff 전처리한 데이터 경로로 저장  
+dataset.py의 from config_shhs_125 / new 로 설정 확인 필요  
+config_shhs_new : X_EOG_diff 전처리한 데이터 경로로 저장한 config.py  
 
 # Extract pretraining dataset  
-python /home/kdpark/sleepfm-codebase/sleepfm/0_extract_pretraining_data_shhs.py \
---shhs_edf_dir "/ssd/datasets/sleep/#_SHHS/polysomnography/edfs/shhs1" \
---shhs_xml_dir "/ssd/datasets/sleep/#_SHHS/polysomnography/annotations-events-profusion/shhs1" \
+'''python 0_extract_pretraining_data_shhs.py \
+--shhs_edf_dir "/#_SHHS/polysomnography/edfs/shhs1" \
+--shhs_xml_dir "/#_SHHS/polysomnography/annotations-events-profusion/shhs1" \
 --target_sampling_rate 125 \
---num_threads 8  
+--num_threads 8'''  
 
 
 # Prepare Dataset (125Hz)  
-python /home/kdpark/sleepfm-codebase/sleepfm/1_prepare_dataset_shhs.py \
---dataset_dir /ssd/kdpark/sleepfm-codebase/shhs_segments_125 \
+'''python 1_prepare_dataset_shhs.py \
+--dataset_dir shhs_segments_125 \
 --train_frac 0.70 \
 --valid_frac 0.10 \
 --test_size 0.20 \
@@ -22,17 +22,17 @@ Split sizes → Train: 3047, Valid: 1306, Test: 1088
 
 # Generate Embedding  
 python 3_generate_embed_pretraining_shhs.py \
-/ssd/kdpark/sleepfm-codebase/outputs_shhs_125 \
---dataset_dir /ssd/kdpark/sleepfm-codebase/shhs_segments_125 \
+outputs_shhs_125 \
+--dataset_dir shhs_segments_125 \
 --dataset_file dataset_events_-1.pickle \
 --batch_size 64 \
 --num_workers 0 \
 --splits train,valid,test
 
 # Classification Eval Pretraining  
-python /home/kdpark/sleepfm-codebase/sleepfm/4_classification_eval_pretraining_shhs.py \
---output_file /ssd/kdpark/sleepfm-codebase/outputs_shhs_125 \
---dataset_dir /ssd/kdpark/sleepfm-codebase/shhs_segments_125 \
+python 4_classification_eval_pretraining_shhs.py \
+--output_file outputs_shhs_125 \
+--dataset_dir shhs_segments_125 \
 --modality_type sleep_stages \
 --model_name logistic \
 --max_iter 1000  
@@ -43,8 +43,8 @@ python /home/kdpark/sleepfm-codebase/sleepfm/4_classification_eval_pretraining_s
 
 # Fine Encoder  
 
-python /home/kdpark/sleepfm-codebase/sleepfm/fine_encoder_final0_shhs.py  
-python /home/kdpark/sleepfm-codebase/sleepfm/fine_encoder_wce0_shhs.py  
+python fine_encoder_final_shhs.py  
+python fine_encoder_wce_shhs.py  
 
 # Fine Encoder Results  
 <img width="364" height="156" alt="image" src="https://github.com/user-attachments/assets/c9a3e4bf-9f46-4c5a-9288-c840f65715c2" />
