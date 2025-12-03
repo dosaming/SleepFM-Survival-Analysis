@@ -1,36 +1,42 @@
 # Environment  
+scipy 설치 취소 후 버전 맞춰서 다시 설치  
+```
 pip install scipy==1.9.3
+```
 
 # Data Preprocess  
-python /home/kdpark/sleepfm-codebase/sleepfm/cox_preprocess_1.py \
-  --dataset_file /ssd/kdpark/sleepfm-codebase/shhs_segments_125/dataset_events_-1.pickle \
+```
+python cox_preprocess_1.py \
+  --dataset_file shhs_segments_125/dataset_events_-1.pickle \
   --split valid \
   --modality sleep_stages \
-  --ckpt_path /ssd/kdpark/sleepfm-codebase/outputs_shhs_list/runs/250829_124007_sleep_stages/ft_last.pt \
-  --out_dir /ssd/kdpark/sleepfm-codebase/outputs_shhs_list/emb_pickles  
+  --ckpt_path /outputs_shhs_list/runs/250829_124007_sleep_stages/ft_last.pt \
+  --out_dir /outputs_shhs_list/emb_pickles
+```
   
-
-python /home/kdpark/sleepfm-codebase/sleepfm/cox_preprocess_2.py \
-  --embeddings_pickle /ssd/kdpark/sleepfm-codebase/outputs_shhs_list/emb_pickles/embeddings_train.pickle \
-  --dataset_file     /ssd/kdpark/sleepfm-codebase/shhs_segments_125/dataset_events_-1.pickle \
+```
+python cox_preprocess_2.py \
+  --embeddings_pickle outputs_shhs_list/emb_pickles/embeddings_train.pickle \
+  --dataset_file     shhs_segments_125/dataset_events_-1.pickle \
   --split            train \
   --modality         sleep_stages \
-  --events_csv       /ssd/kdpark/sleepfm-codebase/shhs_segments_125/shhs-cvd-events-dataset-0.20.0.csv \
-  --out_dir          /ssd/kdpark/sleepfm-codebase/outputs_shhs_list/emb_pickles  
-
-    
-python /ssd/kdpark/sleepfm-codebase/sleepfm/merged_final.py  
-
+  --events_csv       shhs-cvd-events-dataset-0.20.0.csv \
+  --out_dir          outputs_shhs_list/emb_pickles  
+```
+```    
+python merged_final.py  
+```
 
 
 # CoxMLP  
-python /ssd/kdpark/sleepfm-codebase/sleepfm/CoxMLP.py \
-  --train_pickle /ssd/kdpark/sleepfm-codebase/sleepfm/merged_final/survival_train_merged.pickle \
-  --valid_pickle /ssd/kdpark/sleepfm-codebase/sleepfm/merged_final/survival_valid_merged.pickle \
-  --test_pickle  /ssd/kdpark/sleepfm-codebase/sleepfm/merged_final/survival_test_merged.pickle
+```
+python CoxMLP.py \
+  --train_pickle /merged_final/survival_train_merged.pickle \
+  --valid_pickle /merged_final/survival_valid_merged.pickle \
+  --test_pickle  /merged_final/survival_test_merged.pickle
 --epochs 400 --lr 5e-4 --l2 5e-3 \
 --hidden 64 --dropout 0.4 --val_freq 5 --ties breslow --grad_clip 1.0  
-
+```
 
 # Code Explanation
 데이터 준비  
